@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SynDice.View.Dice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SynDice.View"
+        xmlns:wm="clr-namespace:SynDice.ViewModel" 
+        mc:Ignorable="d"
+        >    
+    <UserControl.DataContext>
+        <wm:DiceViewModel/>
+    </UserControl.DataContext>
+    <Grid Margin="10">  
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <Label Content="Min : "/>
+                    <Label Content="Max : "/>
+                    <Label Content="Res : "/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Text="{Binding Min, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Margin="2,5,5,0" Width="30"/>
+                    <TextBox Text="{Binding Max, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Margin="2,8,5,0" />
+                    <TextBox Text="{Binding Res, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" TextAlignment="Center" Margin="2,8,5,0" />
+                </StackPanel>
+            </StackPanel>
+            <Button Margin="5,10,5,5" Command="{Binding Roll}">
+                <StackPanel Margin="5" Width="30">
+                    <Image Source="/SynDice;component/Images/dice2.png" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
